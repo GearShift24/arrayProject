@@ -6,29 +6,29 @@ public class ArrayController
 {
 	private String [] words = {"this","is","the","next","level","of","hipster","the","initilization","sequence"};
 	private int [] numbers;
-	private Array [] arrays; //delcare the arrays up here to use below
+	private Array [] arrays; //declare the arrays up here to use below
 	private ArrayFrame appFrame;
 	
 	public ArrayController()
 	{
 		showHipsterLevelThree();
 		arrays = new Array [5];
+		for(int index = 0; index < arrays.length; index++)
+		{
+			arrays[index] = new Array("Hipster #" + index);
+		}
+		
 		appFrame = new ArrayFrame(this);
 	}
 	
 	public void start()
 	{
-			for(int index = 0; index < arrays.length; index++)
-			{
-				arrays[index] = new Array("Hipster #" + index);
-			}
+
 			
 			for(Array current : arrays)
 			{
 				System.out.println(current);
 			}
-			
-			
 			
 			
 			arrays[0].setName("asdasd");

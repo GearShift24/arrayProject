@@ -24,7 +24,7 @@ public class ArrayFrame extends JFrame
 	{
 		this.setContentPane(appPanel);
 		this.setTitle("this is a crappy app");
-		this.setSize(new Dimension(500,600));
+		this.setSize(new Dimension(400,400));
 		this.setResizable(false);
 		this.setVisible(true);
 	}

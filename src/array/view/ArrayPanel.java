@@ -4,6 +4,14 @@ import javax.swing.*;
 import array.controller.ArrayController;
 import java.awt.Color;
 
+import array.controller.ArrayController;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+
+
 public class ArrayPanel extends JPanel
 {
 	private SpringLayout baseLayout;
@@ -19,6 +27,7 @@ public class ArrayPanel extends JPanel
 		this.myButton = new JButton("click the button");
 		this.infoLabel =  new JLabel("wow words!");
 		this.dropDown = new JComboBox(baseController.getWords());
+
 		
 		setupPanel();
 		setupLayout();
@@ -35,16 +44,24 @@ public class ArrayPanel extends JPanel
 	}
 	private void setupLayout()
 	{
-		baseLayout.putConstraint(SpringLayout.WEST, myButton, 138, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, myButton, -89, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, infoLabel, 132, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.EAST, infoLabel, -194, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.WEST, dropDown, 193, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, dropDown, -29, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, dropDown, -194, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, infoLabel, 0, SpringLayout.WEST, dropDown);
+		baseLayout.putConstraint(SpringLayout.SOUTH, myButton, -38, SpringLayout.NORTH, dropDown);
+		baseLayout.putConstraint(SpringLayout.SOUTH, dropDown, -27, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, infoLabel, -116, SpringLayout.NORTH, myButton);
+		baseLayout.putConstraint(SpringLayout.WEST, myButton, 114, SpringLayout.WEST, this);
 	}
+	
 	private void setupListeners()
 	{
-		
+		dropDown.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent selection)
+			{
+				infoLabel.setText(dropDown.getSelectedItem().toString());
+				
+			}
+		});
 	}
 	
 
