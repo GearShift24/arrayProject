@@ -26,7 +26,8 @@ public class ArrayPanel extends JPanel
 		this.baseLayout = new SpringLayout();
 		this.myButton = new JButton("click the button");
 		this.infoLabel =  new JLabel("wow words!");
-		this.dropDown = new JComboBox(baseController.getWords());
+		this.dropDown = new JComboBox(baseController.getArray());
+	
 
 		
 		setupPanel();
@@ -43,13 +44,12 @@ public class ArrayPanel extends JPanel
 		this.add(myButton);
 	}
 	private void setupLayout()
-	{
-		baseLayout.putConstraint(SpringLayout.EAST, dropDown, -194, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.WEST, infoLabel, 0, SpringLayout.WEST, dropDown);
-		baseLayout.putConstraint(SpringLayout.SOUTH, myButton, -38, SpringLayout.NORTH, dropDown);
-		baseLayout.putConstraint(SpringLayout.SOUTH, dropDown, -27, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, infoLabel, -116, SpringLayout.NORTH, myButton);
-		baseLayout.putConstraint(SpringLayout.WEST, myButton, 114, SpringLayout.WEST, this);
+	{	baseLayout.putConstraint(SpringLayout.NORTH, dropDown, 58, SpringLayout.SOUTH, myButton);
+	baseLayout.putConstraint(SpringLayout.EAST, dropDown, -119, SpringLayout.EAST, this);
+	baseLayout.putConstraint(SpringLayout.NORTH, infoLabel, 79, SpringLayout.NORTH, this);
+	baseLayout.putConstraint(SpringLayout.EAST, infoLabel, -109, SpringLayout.EAST, this);
+	baseLayout.putConstraint(SpringLayout.SOUTH, myButton, -156, SpringLayout.SOUTH, this);
+	baseLayout.putConstraint(SpringLayout.EAST, myButton, -67, SpringLayout.EAST, this);
 	}
 	
 	private void setupListeners()
@@ -60,6 +60,15 @@ public class ArrayPanel extends JPanel
 			{
 				infoLabel.setText(dropDown.getSelectedItem().toString());
 				
+			}
+		});
+		
+		myButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				baseController.impactArrays();
+				repaint();
 			}
 		});
 	}

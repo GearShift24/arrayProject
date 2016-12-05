@@ -38,11 +38,18 @@ public class ArrayController
 				System.out.println(current);
 			}
 			
-//			for(String s: words)
-//			{
-//				System.out.println(s);
-//			}
+		
 			
+
+			
+	}
+	
+	public void impactArrays()
+	{
+		for(Array currentArray : arrays)
+		{
+			currentArray.calculateArrayRank(10, -5);
+		}
 	}
 
 	private void showHipsterLevelThree()
