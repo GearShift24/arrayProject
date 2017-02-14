@@ -24,7 +24,6 @@ public class ArrayController
 	public void start()
 	{
 
-			
 			for(Array current : arrays)
 			{
 				System.out.println(current);
